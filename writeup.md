@@ -1,10 +1,6 @@
 # **Traffic Sign Recognition**
 
-## Writeup
 
-### This is writeup of my **Traffic Sign Recognition** project
-
----
 
 **Build a Traffic Sign Recognition Project**
 
@@ -15,19 +11,6 @@ The goals / steps of this project are the following:
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
-
-
-
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
-
----
-## Writeup / README
-
-### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it!
 
 ## Data Set Summary & Exploration
 
@@ -50,13 +33,6 @@ You're reading it!
 > * Number of classes = **43**
 
 #### 2. Include an exploratory visualization of the dataset.
-I write a plot function to show the images from the dataset:
-
-![](writeup_imgs/2.png)
-
-Show some images of training dataset, here we can see the result of data augmentation:
-
-![](writeup_imgs/3.png)
 
 ## Design and Test a Model Architecture
 
@@ -82,33 +58,6 @@ In this stage, I write a class called LeNet. I have not change the structure of 
 * The model is saved to a checkpoint file by using saver
 * Here I use the Adam Optimizer to train the model
 * the learning rate is 0.001
-
-The structure of my model is show in the figure:
-
-![](writeup_imgs/1.png)
-
-My final model consisted of the following layers:
-
-| Layer         		|     Description	        					|
-|:---------------------:|:---------------------------------------------:|
-| Input         		| 32x32x1 gray image   							|
-| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
-| Convolution 5x5	    | 1x1 stride, valid padding, outputs 10x10x16      									|
-| Max pooling	  | 2x2 stride,  outputs 5x5x16  |
-| RELU   |   |
-| Fully connected		| inputs 5x5x16, output 120      									|
-| RELU   |   |
-| Dropout   |  keep: 50% |
-|  Fully connected		| inputs 120, output 84   |
-| RELU   |   |
-| Dropout   | keep: 50%  |
-|   Fully connected		| inputs 84, output 43   |
-| Softmax				|     									|
-|			Loss			|						cross_entropy						|
-
-
 
 
 ### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
@@ -165,30 +114,9 @@ If a well known architecture was chosen:
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are 10 German traffic signs that I found on the web:
 
-![](writeup_imgs/4.png)
-
-* The 5th image is difficult to recognize as the size is too small.
-* In 8th image, the "arret" is the stop sign in french, which is not in the training set, so it is hard for the model to recognize it.
-* The 10th image might be hard for the model to recognize since the sign is occluded by snow
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
-
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					|
-|:---------------------:|:---------------------------------------------:|
-| Keep right      		| Keep right   									|
-| Road work      		| Road work   									|
-| Yield   | Yield  |
-| Speed limit (30km/h)     			| Speed limit (30km/h) 										|
-| Turn right ahead   | Roundabout mandatory  |
-| Slippery road					| Slippery road											|
-| No entry      		| No entry					 				|
-| Turn left ahead			| Stop      							|
-| Right-of-way at the next intersection   | Children crossing  |
-| Go straight or right   | Speed limit (60km/h)  |
 
 The model work fine when the sign is clear. But when the sign is not in the train dataset, is still hard to identify the sign precisily.
 
@@ -231,24 +159,3 @@ The top 5 is calculate in the model:
  [36 18 20 25 35]]
  ```
 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-The feature maps of the model is (for the first test image):
-
-### After the first convolution map:
-
-![](writeup_imgs/5.png)
-
-### After the first maxpool
-
-![](writeup_imgs/6.png)
-
-### The second convolutional feature map result:
-
-![](writeup_imgs/7.png)
-
-### The Second maxpool
-
-![](writeup_imgs/8.png)
